@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Image Puzzle</title>
+    <link href="css/style.css" rel="stylesheet" />
+    <script src="js/image-puzzle.js"></script>
+</head>
+
+<body>
+    <div id="gamebox">
+        <h2>Image Puzzle</h2>
+        <hr />
+        <div id="playPanel" style="padding:5px;display:none;">
+            <div>
+                <p> Rearrange the tiles to get the original Image!</p>
+                
+                <hr>
+            </div>
+           
+            <div style="display:inline-block; margin:auto; width:95%; vertical-align:top;">
+                <ul id="sortable" class="sortable"></ul>
+                <div id="actualImageBox">
+                    <div id="stepBox">
+                        <div>Steps taken:</div>
+                        <div class="stepCount">0</div>
+                    </div>
+                   
+                    <div>
+                        <br>
+                        <br>
+                       <button id="myBtn">Hint</button>
+                       <div id="myModal" class="modal"> 
+                            <div class="modal-content">
+                              <span class="close">&times;</span>
+                              <h1>The original image</h1>
+                              <img src="images/tech.jpg" id="actualImage" alt=" Puzzle image">
+                            </div>
+                          </div>
+                         <button id="restart" type="button" class="btn" onclick="restart();">New Game</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+                       
+
+
+        
+        <div id="gameOver" style="display:none;">
+            <div>
+                
+                <h4>Congratulations!!</h4>
+                <br >
+                <p>You solved this Image in <span class="stepCount">0</span> steps</p> 
+               
+                <br > 
+                Time Taken: <span class="timeCount">0</span> seconds
+                <br>
+                <div>
+                    <button type="button" onclick="window.location.reload(true);">Play Again</button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            
+            // Get the modal
+            var modal = document.getElementById("myModal");
+            
+            // Get the button that opens the modal
+            var btn = document.getElementById("myBtn");
+            
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+           /* var img = document.getElementById("myImg");*/
+           //get the image
+            var modalImg = document.getElementById("img01");
+            
+            
+            // When the user clicks the button, open the modal 
+            btn.onclick = function() {
+              modal.style.display = "block";
+              modalImg.src = this.src;
+            }
+            
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+              modal.style.display = "none";
+            }
+            
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+              if (event.target == modal) {
+                modal.style.display = "none";
+              }
+            }
+            </script>
+    </div>
+</body>
+</html>
